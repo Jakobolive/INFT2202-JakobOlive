@@ -53,7 +53,7 @@ ul {
 
 li {
 	background-color: #ec8b68;
-	color: #fff;
+	/*color: #fff;*/
 	border-top: 1px solid #fe9772;
 	border-bottom: 1px solid #9f593f;
 	font-size: 24px;
@@ -73,7 +73,7 @@ li {
 
 .cool {
 	background-color: #6cc0ac;
-	color: #fff;
+	color: #0055ff;
 	text-shadow: 2px 2px 1px #3b6a5e;
 	border-top: 1px solid #7ee0c9;
 	border-bottom: 1px solid #3b6a5e;}
