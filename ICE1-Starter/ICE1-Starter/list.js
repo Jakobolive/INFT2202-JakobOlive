@@ -41,7 +41,7 @@ for(count; count < groceryList.childElementCount; count++)
 
 // ADD NUMBER OF ITEMS IN THE LIST TO THE HEADING
 // h2 element
-var oldHeader = document.getElementsById("header2");
+var oldHeader = document.getElementById("header2");
 // h2 text
 //? no idea what I am meant to do here.
 // No. of <li> elements
