@@ -9,22 +9,31 @@ var groceryList = document.getElementById("list");
 // ADD NEW ITEM TO END OF LIST
 // Create element
 var nextElement1 = document.createElement("li");
+let element1 = document.createElement("li");
+
 // Create text node
 var nextItem1 = document.createTextNode("Olive Oil");
+let text1 = document.createTextNode("Cream");
 // Add text node to element
 nextElement1.appendChild(nextItem1);
+element1.appendChild(text1);
 // Add element end of list
 groceryList.appendChild(nextElement1);
+groceryList.appendChild(element1);
 
 // ADD NEW ITEM START OF LIST
 // Create element
 var nextElement2 = document.createElement("li");
+let element2 = document.createElement("li");
 // Create text node
 var nextItem2 = document.createTextNode("Orange Juice");
+let text2 = document.createTextNode("Spinach");
 // Add text node to element
 nextElement2.appendChild(nextItem2);
+element2.appendChild(text2);
 // Add element to list
 groceryList.prepend(nextElement2);
+groceryList.prepend(element2);
 // All <li> elements
 document.write(groceryList);
 
