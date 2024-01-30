@@ -3,7 +3,9 @@
     Date: 2024-01-28
     Course: INFT 2202
     File: ServicesPage.html
-    File Desc: ...
+    File Desc: As most of the body content of the webpages are to be added using DOM manipulation, this html page only has a hard coded 
+            navbar from bootstraps with several ids along with a few divisions with varying ids to assist in placements and locations in
+            the app.js file.
 -->
 <!DOCTYPE html>
 <html>
@@ -17,13 +19,13 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-        <title>Bootstrap Example</title>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 	</head>
-	<body>
-		<div id="servicesPage">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary;" style="background-color: #e3f2fd;">
+	<body class="background" id="servicesPage">
+		<div id="content">
+            <nav id="topNav" class="navbar navbar-expand-lg bg-body-tertiary;" style="background-color: #ffa046;">
                 <div class="container-fluid">
                 <a class="navbar-brand" href="#">Welcome to the INFT 2202 Lab 1</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,24 +33,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul id="nav_list" class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li id="home" class="nav-item">
-                        <a class="nav-link" href="./HomePage.html">Home</a>
+                    <li class="nav-item">
+                        <a id="home" class="nav-link" href="./HomePage.html">Home</a>
                     </li>
-                    <li id="products" class="nav-item">
-                        <a class="nav-link" href="./ProductPage.html">Products</a>
+                    <li class="nav-item">
+                        <a id="product" class="nav-link" href="./ProductPage.html">Products</a>
                     </li>
-                    <li id="services" class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./ServicesPage.html">Services</a>
+                    <li class="nav-item">
+                        <a id="services" class="nav-link active" aria-current="page" href="./ServicesPage.html">Services</a>
                     </li>
-                    <li id="aboutUs" class="nav-item">
-                        <a class="nav-link" href="./AboutUsPage.html">About Us</a>
+                    <li class="nav-item">
+                        <a id="aboutUs" class="nav-link" href="./AboutUsPage.html">About Us</a>
                     </li>
-                    <li id="contactUs" class="nav-item">
-                        <a class="nav-link" href="./ContactUsPage.html">Contact Us</a>
+                    <li class="nav-item">
+                        <a id="contactUs" class="nav-link" href="./ContactUsPage.html">Contact Us</a>
                     </li>
                     </ul>
                     <span class="navbar-text">
-                    Navbar Generated From Bootstrap.
+                    Navbar Generated From Bootstrap
                     </span>
                 </div>
                 </div>

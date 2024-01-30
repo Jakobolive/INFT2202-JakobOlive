@@ -3,7 +3,7 @@
     Date: 2024-01-28
     Course: INFT 2202
     File: App.css
-    File Desc: ... 
+    File Desc: This file will contain all the style classes and other style elements for the application.
 */
 
 body {
@@ -28,13 +28,13 @@ h2 {
 	margin: 0 0 23px 0;}
 
 ul {
-	background-color: #e3f2fd;
+	background-color: #ffa046;;
 	border:none;
 	padding: 0;
 	margin: 0;}
 
 li {
-	background-color: #e3f2fd;
+	background-color: #ffa046;;
 	text-align: center;
 	border-bottom: 1px solid #000;
 	font-size: 20px;
