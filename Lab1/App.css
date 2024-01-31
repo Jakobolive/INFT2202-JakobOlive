@@ -21,20 +21,19 @@ h1 {
 
 h2 {
 	font-size: 24px;
-	font-weight: normal;
+	font-weight: bold;
 	text-align: center;
-	text-transform: uppercase;
 	letter-spacing: .2em;
-	margin: 0 0 23px 0;}
+	margin: 5% 0;}
 
 ul {
-	background-color: #ffa046;;
+	background-color: #ffa046;
 	border:none;
 	padding: 0;
 	margin: 0;}
 
 li {
-	background-color: #ffa046;;
+	background-color: #ffa046;
 	text-align: center;
 	border-bottom: 1px solid #000;
 	font-size: 20px;
