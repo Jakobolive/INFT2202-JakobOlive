@@ -40,18 +40,26 @@ topNavBar.insertBefore(humanResourcesList, contactUsList);
 // Grabbing the footer div and creating the elements needed for the fixed bottom nav bar.
 let footerNavString = "Copyright 2024, Jakob Olive";
 let footerDiv = document.getElementById("footer");
+let containerDiv = document.createElement("div");
 let bottomNavBar = document.createElement("nav");
-let bottomNavBarText = document.createElement("a");
+let bottomNavBarText = document.createElement("p");
 let bottomNavBarTextNode = document.createTextNode(footerNavString)
 
+
 // Adding classes, appending together, and then appending to footer.
-bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary");
-bottomNavBar.style.textAlign = "center";
-bottomNavBar.style.backgroundColor = "#ffa046";
+//bottomNavBar.style.alignItems = "center";
+//bottomNavBar.style.backgroundColor = "#ffa046";
+bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary", "footerNav");
+containerDiv.classList.add("container-fluid")
 bottomNavBarText.classList.add("navbar-brand");
 bottomNavBarText.appendChild(bottomNavBarTextNode);
 bottomNavBar.appendChild(bottomNavBarText);
-footerDiv.appendChild(bottomNavBar);
+containerDiv.appendChild(bottomNavBar);
+footerDiv.appendChild(containerDiv);
+
+//bottomNavBarText.style.backgroundColor = "#ffa046";
+//footerDiv.style.backgroundColor = "#ffa046";
+
 
 /*
     Section that will check the id on each page body using an if else statement and populating the html page using DOM manipulation

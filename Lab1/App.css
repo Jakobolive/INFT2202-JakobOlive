@@ -63,5 +63,11 @@ p {
     background-image: url('./images/background.png');
     background-size: cover;}
 
+.footerNav {
+	background-color: #ffa046;
+	align-items: center;
+	text-align: center;
+}
+
 #scriptResults {
 	padding-bottom: 10px;}
