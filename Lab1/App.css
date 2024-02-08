@@ -27,15 +27,14 @@ h2 {
 	margin: 5% 0;}
 
 ul {
-	background-color: #ffa046;
+	background-color: transparent;
 	border:none;
 	padding: 0;
 	margin: 0;}
 
 li {
-	background-color: #ffa046;
+	background-color: transparent;
 	text-align: center;
-	border-bottom: 1px solid #000;
 	font-size: 20px;
 	letter-spacing: .05em;
 	list-style-type:none;
@@ -59,13 +58,24 @@ p {
     min-width: 20%; 
 	max-width: 80%;}
 
+input {
+	background-color:transparent;
+	color: #000;
+	text-align: center;
+}
+
+textarea {
+	background-color: transparent;
+	color: #000;
+	text-align: center;
+}
+
 .background {
     background-image: url('./images/background.png');
     background-size: cover;}
 
 .footerNav {
-	background-color: #ffa046;
-	align-items: center;
+	background-color: transparent;
 	text-align: center;
 }
 

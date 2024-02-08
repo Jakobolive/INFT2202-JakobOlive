@@ -34,7 +34,6 @@ humanResourcesText.classList.add("nav-link");
 
 // Appending the tags together and then inserting them into the nav bar.
 humanResourcesList.appendChild(humanResourcesText);
-//humanResourcesIcon.innerHTML = '<i class="fa-regular fa-user"></i>';
 topNavBar.insertBefore(humanResourcesList, contactUsList);
 
 // Grabbing the footer div and creating the elements needed for the fixed bottom nav bar.
@@ -47,19 +46,14 @@ let bottomNavBarTextNode = document.createTextNode(footerNavString)
 
 
 // Adding classes, appending together, and then appending to footer.
-//bottomNavBar.style.alignItems = "center";
-//bottomNavBar.style.backgroundColor = "#ffa046";
 bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary", "footerNav");
-containerDiv.classList.add("container-fluid")
+bottomNavBar.style.backgroundColor = "transparent";
+containerDiv.classList.add("container-fluid");
 bottomNavBarText.classList.add("navbar-brand");
 bottomNavBarText.appendChild(bottomNavBarTextNode);
 bottomNavBar.appendChild(bottomNavBarText);
 containerDiv.appendChild(bottomNavBar);
 footerDiv.appendChild(containerDiv);
-
-//bottomNavBarText.style.backgroundColor = "#ffa046";
-//footerDiv.style.backgroundColor = "#ffa046";
-
 
 /*
     Section that will check the id on each page body using an if else statement and populating the html page using DOM manipulation
@@ -72,6 +66,7 @@ var content = document.getElementById("content");
 
 // This section checks for the body id of homePage and populates the HomePage.html appropriately.
 if (document.getElementById("homePage")){
+
     // Defining the strings wanted for the tags.
     let homePageHeaderString = "Welcome To The Jungle";
     let homePageParagraphString = "This is going into the homepage, will add to later.";
@@ -227,6 +222,136 @@ if (document.getElementById("aboutUsPage")){
 // This section checks for the body id of contactUs and populates the ContactUsPage.html appropriately.
 if (document.getElementById("contactUsPage")){
 
+    // Defining the strings wanted for the tags.
+    let contactUsHeaderString = "Welcome To The Jungle";
+    let contactUsParagraphString = "This is going into the homepage, will add to later.";
+
+    // Creating elements and text nodes for both the header and the paragraph.
+    let contactUsHeaderElement = document.createElement("h1");
+    let contactUsParagraphElement = document.createElement("p");
+    let contactUsHeaderText = document.createTextNode(contactUsHeaderString);
+    let contactUsParagraphText = document.createTextNode(contactUsParagraphString);
+    // Appending the nodes together and then onto the homePage variable, the actual page.
+    contactUsHeaderElement.appendChild(contactUsHeaderText);
+    contactUsParagraphElement.appendChild(contactUsParagraphText);
+    content.appendChild(contactUsHeaderElement);
+    content.appendChild(contactUsParagraphElement);
+
+    // Open the form element.
+    let form = document.createElement("form");
+    form.setAttribute("name", "form");
+    
+    // Create a list element to help format the form.
+    let formLayout = document.createElement("ul");
+
+    // Create input tags for the form element.
+    let nameInput = document.createElement("input");
+    let nameInputList = document.createElement("li");
+    nameInput.setAttribute("id", "name");
+    nameInput.setAttribute("type", "text");
+    nameInput.setAttribute("name", "Name");
+    nameInput.setAttribute("placeholder", "Name");
+    let numberInput = document.createElement("input");
+    let numberInputList = document.createElement("li");
+    numberInput.setAttribute("id", "number");
+    numberInput.setAttribute("type", "text");
+    numberInput.setAttribute("name", "phoneNumber");
+    numberInput.setAttribute("placeholder", "Phone Number");
+    let emailInput = document.createElement("input");
+    let emailInputList = document.createElement("li");
+    emailInput.setAttribute("id", "email");
+    emailInput.setAttribute("type", "text");
+    emailInput.setAttribute("name", "email");
+    emailInput.setAttribute("placeholder", "Email Address");
+    let messageArea = document.createElement("textarea");
+    let messageInputList = document.createElement("li");
+    messageArea.setAttribute("id", "message");
+    messageArea.setAttribute("name", "message");
+    messageArea.setAttribute("rows", "10");
+    messageArea.setAttribute("cols", "30");
+    
+    // Creating labels for the input tags.
+    let nameLabel = document.createElement("label");
+    let nameLabelList = document.createElement("li");
+    let nameText = document.createTextNode("Name");
+    nameLabel.setAttribute("for", "name");
+    nameLabel.appendChild(nameText);
+    let numberLabel = document.createElement("label");
+    let numberLabelList = document.createElement("li");
+    let numberText = document.createTextNode("Phone Number");
+    numberLabel.setAttribute("for", "number");
+    numberLabel.appendChild(numberText);
+    let emailLabel = document.createElement("label");
+    let emailLabelList = document.createElement("li");
+    let emailText = document.createTextNode("Email");
+    emailLabel.setAttribute("for", "email");
+    emailLabel.appendChild(emailText);
+    let messageLabel = document.createElement("label");
+    let messageLabelList = document.createElement("li");
+    let messageText = document.createTextNode("Message");
+    messageLabel.setAttribute("for", "message");
+    messageLabel.appendChild(messageText);
+
+    // Append input elements to the list items and then to the form.
+    nameLabelList.appendChild(nameLabel);
+    nameInputList.appendChild(nameInput);
+    numberLabelList.appendChild(numberLabel);
+    numberInputList.appendChild(numberInput);
+    emailLabelList.appendChild(emailLabel);
+    emailInputList.appendChild(emailInput);
+    messageLabelList.appendChild(messageLabel);
+    messageInputList.appendChild(messageArea);
+
+    formLayout.appendChild(nameLabelList);
+    formLayout.appendChild(nameInputList);
+    formLayout.appendChild(numberLabelList);
+    formLayout.appendChild(numberInputList);
+    formLayout.appendChild(emailLabelList);
+    formLayout.appendChild(emailInputList);
+    formLayout.appendChild(messageLabelList);
+    formLayout.appendChild(messageInputList);
+    
+    // Append the listformat to the form.
+    form.appendChild(formLayout);
+
+    // Creating the submit button.
+    let buttonLayout = document.createElement("ul");
+    let submitButton = document.createElement("button");
+    submitButton.classList.add("btn", "btn-light");
+    let submitButtonText = document.createTextNode("Contact Us!");
+    submitButton.appendChild(submitButtonText);
+    let submitList = document.createElement("li");
+    submitButton.setAttribute("id", "submit");
+
+    submitList.appendChild(submitButton);
+    buttonLayout.appendChild(submitList);
+    // Append the form to the page.
+    content.appendChild(form);
+    content.appendChild(buttonLayout);
+
+    // Adding an on click event listener to the button and creating function to display form contents in console, redirect to the home page.
+    document.getElementById("submit").addEventListener("click", displayAndRedirect);
+
+    // Function to get the code to wait for a certain time in milliseconds.
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+     }
+
+    // Method that will display form values and redirect to home page.
+    async function displayAndRedirect() {
+        let name = document.forms["form"]["name"].value;
+        let number = document.forms["form"]["number"].value;
+        let email = document.forms["form"]["email"].value;
+        let message = document.forms["form"]["message"].value;
+        // Write input to the console.
+        console.log("Name: " + name + "\nPhone Number: " + number + "\nEmail Address: " + email + "\nMessage: " + message);
+        
+        // Makes the program wait 3000 milliseconds before executing the function.
+        await sleep(3000);
+
+        location.replace("./HomePage.html");
+        
+      };
 }
 
 // This section checks for the body id of humanResourcesPage and populates the HumanResourcesPage.html appropriately.
