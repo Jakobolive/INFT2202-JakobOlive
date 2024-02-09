@@ -70,14 +70,32 @@ textarea {
 	text-align: center;
 }
 
+img {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 25%;
+}
+
 .background {
     background-image: url('./images/background.png');
     background-size: cover;}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .footerNav {
 	background-color: transparent;
 	text-align: center;
 }
 
+.transparent {
+	background-color: transparent;
+}
+
 #scriptResults {
 	padding-bottom: 10px;}
+

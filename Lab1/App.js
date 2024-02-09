@@ -46,8 +46,7 @@ let bottomNavBarTextNode = document.createTextNode(footerNavString)
 
 
 // Adding classes, appending together, and then appending to footer.
-bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary", "footerNav");
-bottomNavBar.style.backgroundColor = "transparent";
+bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary", "footerNav", "transparent");
 containerDiv.classList.add("container-fluid");
 bottomNavBarText.classList.add("navbar-brand");
 bottomNavBarText.appendChild(bottomNavBarTextNode);
@@ -68,43 +67,71 @@ var content = document.getElementById("content");
 if (document.getElementById("homePage")){
 
     // Defining the strings wanted for the tags.
-    let homePageHeaderString = "Welcome To The Jungle";
-    let homePageParagraphString = "This is going into the homepage, will add to later.";
+    let homePageHeaderString = "Welcome To The Home Page!";
+    let homePageParagraphString = `The home page really doesn't have a whole lot to offer, other then this nice picture I took and a
+     little rant about the me being a student at DC. Please explore the website as this assignment had me learn a lot from DOM Manipulation
+      and how to use it properly. DOM Manipulation can be a very helpful tool when it comes to creating a website, or just simply changing
+      a few attributes or elements. Needless to say, other than the top navbar, this entire site was built off DOM Manipulation, which may
+      or may not explain why some things are a little... interesting to say the least.`;
 
     // Creating elements and text nodes for both the header and the paragraph.
     let homePageHeaderElement = document.createElement("h1");
     let homePageParagraphElement = document.createElement("p");
+    let homePageImageElement = document.createElement("img");
+    homePageImageElement.setAttribute("src", "./images/image1.png")
     let homePageHeaderText = document.createTextNode(homePageHeaderString);
     let homePageParagraphText = document.createTextNode(homePageParagraphString);
     // Appending the nodes together and then onto the homePage variable, the actual page.
     homePageHeaderElement.appendChild(homePageHeaderText);
     homePageParagraphElement.appendChild(homePageParagraphText);
+
     content.appendChild(homePageHeaderElement);
     content.appendChild(homePageParagraphElement);
+    content.appendChild(homePageImageElement);
 }
 
 // This section checks for the body id of productPage and populates the ProductPage.html appropriately.
 if (document.getElementById("productPage")){
     // Define the strings needed for the h1, h2, and p tags.
-    let mainHeaderString = "Placeholder for the interests page.";
-    let mainParagraphString = "Placeholder for the p tag of the interests page.";
-    let firstHeaderString = "Placeholder for the first interest header.";
-    let firstParagraphString = "Placeholder for the first p tag.";
-    let secondHeaderString = "Placeholder for the second header.";
-    let secondParagraphString = "Placeholder for the second p tag.";
-    let thirdHeaderString = "Placeholder for the third header.";
-    let thirdParagraphString = "Placeholder for the third p tag.";
+    let mainHeaderString = "Welcome To The Interests Page!";
+    let mainParagraphString = `In this page, I was tasked with talking a little about my interests as well as finding appropriate pictures
+     to insert into the page, yet again only using DOM Manipulation. Below will be the results, including three headers, three short paragraphs, as 
+     well as 3 image tags. Who knows, may we will have some common interests.`;
+    let firstHeaderString = "The Great Outdoors";
+    let firstParagraphString = `Coming from the bushland of Wawa, a wee town in Northeastern Ontario, loving the great outdoors is in my blood. 
+    When im up north, I spend a majority of my time on the land either hunting, fishing, canoeing, and even straight up bushwhacking. In my eyes 
+    there is always something to do in the great outdoors, maybe thats why they call it that, the "GREAT" outdoors. Also, I am well aware that this 
+    section was suppose to include my favorite articles of media, but the outdoors is the worlds best show and the wind in the trees is the worlds 
+    best music. \n(Maybe I get bonus points for adding my own pictures... *Laughs*)`;
+    let secondHeaderString = `The Musical Genre That Is "Rez Tunes".`;
+    let secondParagraphString = `Being a Rez kid myself, I have grown quite fond of the music often heard around NDN Country. This isn't 
+    so much a technical genre of music, but more of less a collection of songs that frequent the Indian Reservation scene. This includes a wide 
+    variety of older songs, as well as a fair share of modern day releases from Indigenous artists. A few examples of more popular core 
+    rez songs would be Redbone's "Come and Get Your Love", Brooks & Dunn's "Neon Moon", a load of classic rock, and possibly Buffy St. Marie, 
+    depending on where you land on that debate. A few of the deeper cuts are based off artists more well known in the Native Community, such as
+     Ernest Monias, Chester Knight, NDN Karz, including some newer additions The Halluci Nation, Snotty Nose Rez Kids, and drum groups like 
+     Northern Cree. Otherwise, thats enough about my little "Rez Banger" rant.`;
+    let thirdHeaderString = "Indigenous Comedians";
+    let thirdParagraphString = `After a very long thought process trying to narrow it down to just on individual, my mind shifted and assumed 
+    that I could just include the group as a whole. Indigenous Comedy is truly something special, comedians say what they mean, and they are 
+    more than aware of the experiences that come with being Indigenous, and they know we like to laugh. Some people say we are funny people, which
+     is true, but not for the reasons we like to admit. This little sub brand of comedy features act well known in Indigenous Communities 
+     like Sherry Lynn McKay, Don Burnstick, and even a more household name due to the popular show, Reservation Dogs. Dallas Goldtooth, AKA,
+      William Knifeman. Now that I explained myself a little bit, I feel that is enough about my interests.`;
 
     // Creating required elements and text nodes to hold the page contents.
     let interestsPageHeaderElement = document.createElement("h1");
     let interestsPageParagraphElement = document.createElement("p");
     let firstInterestPictureElement = document.createElement("img");
+    firstInterestPictureElement.setAttribute("src", "./images/image2.png");
     let firstInterestHeaderElement = document.createElement("h2");
     let firstInterestParagraphElement = document.createElement("p");
     let secondInterestPictureElement = document.createElement("img");
+    secondInterestPictureElement.setAttribute("src", "./images/image3.png");
     let secondInterestHeaderElement = document.createElement("h2");
     let secondInterestParagraphElement = document.createElement("p");
     let thirdInterestPictureElement = document.createElement("img");
+    thirdInterestPictureElement.setAttribute("src", "./images/image4.png");
     let thirdInterestHeaderElement = document.createElement("h2");
     let thirdInterestParagraphElement = document.createElement("p");
 
@@ -143,30 +170,55 @@ if (document.getElementById("productPage")){
 // This section checks for the body id of servicesPage and populates the ServicesPage.html appropriately.
 if (document.getElementById("servicesPage")){
     // Define the strings needed for the h1, h2, and p tags.
-    let mainHeaderString = "Placeholder for the interests page.";
-    let mainParagraphString = "Placeholder for the p tag of the interests page.";
-    let firstHeaderString = "Placeholder for the first interest header.";
-    let firstParagraphString = "Placeholder for the first p tag.";
-    let secondHeaderString = "Placeholder for the second header.";
-    let secondParagraphString = "Placeholder for the second p tag.";
-    let thirdHeaderString = "Placeholder for the third header.";
-    let thirdParagraphString = "Placeholder for the third p tag.";
+    let mainHeaderString = "Welcome To The Services Page";
+    let mainParagraphString = `This page is fairly simple. to showcase some of my skills. As the assignment document does not state that 
+    the skills HAVE to be about IT, I will take even more time to rant about my side gig for one of my services. Because this is an IT based course, 
+    and I seem to really enjoy web development, I will include some technical based skills as well as a part of my "Service List." I will also
+     include appropriate pictures to accompany the services, once again, all these header, paragraph, as well as image tags were injected using
+      DOM Manipulation. \nThe link below will download a .PDF of my current resume.`;
+    let resumeText = "Download Here!";
+    let firstHeaderString = "Website Development";
+    let firstParagraphString = `Upon my second semester here at Durham College, I found that I really enjoyed website development and all
+     the challenges that come along with it, as there are often many. Having two semesters to deal with PHP, I had no idea what JavaScript would 
+     hold in store for me. JavaScript did not let me down, as im having quite a blast with this course content. My primary IT based service, that 
+     I would be half confident in, would have to be Website Development. If you or your company would be interested in a custom website, please 
+     find the Contact Us page and send me a message.`;
+    let secondHeaderString = "Mobile App Development";
+    let secondParagraphString = `Mobile App Development has also became another interest within the last two years. Having done interviews with mobile 
+    developers as well as attempting and succeeding to create a small application in last semesters, Object Oriented Programming course, I would be up 
+    for the challenge. ALthought I have only had the time to give mobile development a whirl once, honestly, I would love to try it again. It 
+    was an interesting learning curve on Visual Studios as well as trying to understand how everything cooperated with XML and C#. Once again,
+     if you are interested in a better look at the potential my Mobile App Development may hold, feel free to contact me.`;
+    let thirdHeaderString = "Indigenous Artwork";
+    let thirdParagraphString = `Lastly, my side gig, this is where I create and sell authentic Indigenous artwork. Lately, my winters have
+    been fill with either classes at the College, or prepping for the summer Pow Wow Season. Although I could probably go on for hours about 
+    this, its probably a good idea to stop while im ahead and end it off with a little quote. its a common saying in NDN Country, 
+    "Support Inspired Natives, Not Native Inspired."`;
 
     // Creating required elements and text nodes to hold the page contents.
     let servicePageHeaderElement = document.createElement("h1");
     let servicePageParagraphElement = document.createElement("p");
+    let servicelink = document.createElement("p");
+    let servicePageResumeLinkElement = document.createElement("a");
+    servicePageResumeLinkElement.setAttribute("href", "./images/resume.pdf");
+    servicePageResumeLinkElement.setAttribute("download", "JakobOliveResume");
+    servicePageResumeLinkElement.classList.add("center");
     let firstServicePictureElement = document.createElement("img");
+    firstServicePictureElement.setAttribute("src", "./images/image5.png");
     let firstServiceHeaderElement = document.createElement("h2");
     let firstServiceParagraphElement = document.createElement("p");
     let secondServicePictureElement = document.createElement("img");
+    secondServicePictureElement.setAttribute("src", "./images/image6.png");
     let secondServiceHeaderElement = document.createElement("h2");
     let secondServiceParagraphElement = document.createElement("p");
     let thirdServicePictureElement = document.createElement("img");
+    thirdServicePictureElement.setAttribute("src", "./images/image7.png");
     let thirdServiceHeaderElement = document.createElement("h2");
     let thirdServiceParagraphElement = document.createElement("p");
 
     let servicePageHeaderText = document.createTextNode(mainHeaderString);
     let servicePageParagraphText = document.createTextNode(mainParagraphString);
+    let resumeTextNode = document.createTextNode(resumeText);
     let firstServiceHeaderText = document.createTextNode(firstHeaderString);
     let firstServiceParagraphText = document.createTextNode(firstParagraphString);
     let secondServiceHeaderText = document.createTextNode(secondHeaderString);
@@ -177,6 +229,7 @@ if (document.getElementById("servicesPage")){
     // Appending all nodes and elements together and then onto the content variable.
     servicePageHeaderElement.appendChild(servicePageHeaderText);
     servicePageParagraphElement.appendChild(servicePageParagraphText);
+    servicePageResumeLinkElement.appendChild(resumeTextNode);
     firstServiceHeaderElement.appendChild(firstServiceHeaderText);
     firstServiceParagraphElement.appendChild(firstServiceParagraphText);
     secondServiceHeaderElement.appendChild(secondServiceHeaderText);
@@ -186,6 +239,8 @@ if (document.getElementById("servicesPage")){
 
     content.appendChild(servicePageHeaderElement);
     content.appendChild(servicePageParagraphElement);
+    servicelink.appendChild(servicePageResumeLinkElement);
+    content.appendChild(servicelink);
     content.appendChild(firstServicePictureElement);
     content.appendChild(firstServiceHeaderElement);
     content.appendChild(firstServiceParagraphElement);
@@ -200,11 +255,21 @@ if (document.getElementById("servicesPage")){
 // This section checks for the body id of aboutUsePage and populates the AboutUsPage.html appropriately.
 if (document.getElementById("aboutUsPage")){
     // Define the strings needed for the h1, h2, and p tags.
-    let mainHeaderString = "Placeholder for the interests page.";
-    let mainParagraphString = "Placeholder for the p tag of the interests page.";
+    let mainHeaderString = "Meet The Face Behind The Madness";
+    let mainParagraphString = `In reality, there are lots of things I could talk about but for the sake of this lab, I should keep it short. 
+    I am an Off Reserve Native from Michipicoten First Nations, outside of Wawa, Ontario, roughly an 11 hour drive north from Oshawa. I spend 
+    most of my free time, now either working on homework, creating, or just straight up living life. As sometimes, you dont have the day, 
+    the day has you, and you just have to roll with the punches. Still being a Rez Kid at heart taught me to live life by the day, and laugh 
+    about everything we can, because life is very, very bitter without laughter. Having grown up in the bush living off the land and for the
+     most part, away from technology, I turned to computer programming as an effort to try something
+      new. I had decided to make the journey away for college out of the fears of being stuck in a gold mining career my entire life, which is
+       all too common up north. My educational journey brought me here, to Durham College in Oshawa, into a Web Development class making a website
+        to rant about myself, possibly more than I should be. In short, that is a little about myself, now please enjoy this little AI generated
+         picture that Tik Tok slapped together for me.`;
 
     // Creating required elements and text nodes to hold the page contents.
     let aboutUsPagePictureElement = document.createElement("img");
+    aboutUsPagePictureElement.setAttribute("src", "");
     let aboutUsPageHeaderElement = document.createElement("h1");
     let aboutUsPageParagraphElement = document.createElement("p");
 
@@ -223,8 +288,10 @@ if (document.getElementById("aboutUsPage")){
 if (document.getElementById("contactUsPage")){
 
     // Defining the strings wanted for the tags.
-    let contactUsHeaderString = "Welcome To The Jungle";
-    let contactUsParagraphString = "This is going into the homepage, will add to later.";
+    let contactUsHeaderString = "Feel Free To Contact Us For Further Inquiries";
+    let contactUsParagraphString = `At this little website, we offer a few services, and share a fair bit of information about the creator, so if you have 
+    any inquires or just want to reach out to hear more of the storm that is my story, feel free to fill out the form and contact me. Please, do
+     not expect a reply, as this website may or may not just be a pigment of your imagination.`;
 
     // Creating elements and text nodes for both the header and the paragraph.
     let contactUsHeaderElement = document.createElement("h1");
@@ -323,8 +390,14 @@ if (document.getElementById("contactUsPage")){
     let submitList = document.createElement("li");
     submitButton.setAttribute("id", "submit");
 
+    let buttonSpacer1 = document.createElement("br");
+    let buttonSpacer2 = document.createElement("br");
+    let buttonSpacer3 = document.createElement("br");
     submitList.appendChild(submitButton);
     buttonLayout.appendChild(submitList);
+    buttonLayout.appendChild(buttonSpacer1);
+    buttonLayout.appendChild(buttonSpacer2);
+    buttonLayout.appendChild(buttonSpacer3);
     // Append the form to the page.
     content.appendChild(form);
     content.appendChild(buttonLayout);
