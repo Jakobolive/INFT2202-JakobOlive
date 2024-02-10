@@ -14,17 +14,17 @@
 */
 
 // Use innerHTML to alter the text on the a tag of the product nav bar.
-document.getElementById("product").innerHTML = "Interests";
+document.getElementById("product").innerHTML = "Interests ";
 
 // Grab the ul tag from the top navbar to inject the human resources link, as well as creating the li tag and the a tag.
 let topNavBar = document.getElementById("nav_list");
 let contactUsList = document.getElementById("contactUsList");
 let humanResourcesList = document.createElement("li");
 let humanResourcesText = document.createElement("a");
-//let humanResourcesIcon = document.createElement("i");
+humanResourcesText.setAttribute("id", "hr");
 
 // Creating text nodes and adding elements and classes to the future tags.
-let humanResourcesTextNode = document.createTextNode("Human Resources");
+let humanResourcesTextNode = document.createTextNode("Human Resources ");
 humanResourcesText.appendChild(humanResourcesTextNode);
 
 //humanResourcesText.appendChild(humanResourcesIcon);
@@ -35,6 +35,37 @@ humanResourcesText.classList.add("nav-link");
 // Appending the tags together and then inserting them into the nav bar.
 humanResourcesList.appendChild(humanResourcesText);
 topNavBar.insertBefore(humanResourcesList, contactUsList);
+
+// Adding font awesome icons to the upper navbar.
+// First grabbing all the nav bar <a> tags to append into.
+let homeNavLink = document.getElementById("home");
+let productNavLink = document.getElementById("product");
+let serviceNavLink = document.getElementById("services");
+let aboutUsNavLink = document.getElementById("aboutUs");
+let hRNavLink = document.getElementById("hr");
+let contactUsNavLink = document.getElementById("contactUs");
+
+// Creating <i> tags to set classes to.
+let homeIcon = document.createElement("i");
+homeIcon.classList.add("fa-solid", "fa-house");
+let prodIcon = document.createElement("i");
+prodIcon.classList.add("fa-solid", "fa-leaf");
+let servIcon = document.createElement("i");
+servIcon.classList.add("fa-solid", "fa-code");
+let aboutIcon = document.createElement("i");
+aboutIcon.classList.add("fa-solid", "fa-question");
+let hrIcon = document.createElement("i");
+hrIcon.classList.add("fa-solid", "fa-user");
+let contactIcon = document.createElement("i");
+contactIcon.classList.add("fa-solid", "fa-phone");
+
+// Appending the <i> tags to the <a> tags.
+homeNavLink.appendChild(homeIcon);
+productNavLink.appendChild(prodIcon);
+serviceNavLink.appendChild(servIcon);
+aboutUsNavLink.appendChild(aboutIcon);
+hRNavLink.appendChild(hrIcon);
+contactUsNavLink.appendChild(contactIcon);
 
 // Grabbing the footer div and creating the elements needed for the fixed bottom nav bar.
 let footerNavString = "Copyright 2024, Jakob Olive";
