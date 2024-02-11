@@ -1,7 +1,8 @@
-console.log('app.js loaded')
+import { validateFirst as validFirst, validateLast as validLast, validateUsername as validUsername,  validateEmail as validEmail, validatePassword as validPassword} from './form.js';
 // TO DO: load the user class script with alias
+import { User as user} from './user.js';
 
-
+console.log('app.js loaded');
 
 /**
  * iffe to insert nav bar at the top of each page
@@ -35,15 +36,15 @@ $(function () {
  $(function () {
 
      let navDiv = $("div:first");
-     console.log(navDiv.html())
-     console.log(navDiv.text())
+     console.log(navDiv.html());
+     console.log(navDiv.text());
 
-     let contentDiv = $("#content-div");
-     console.log(contentDiv.html())
-     console.log(contentDiv.text())
+     let contentDiv = $('#content-div');
+     console.log(contentDiv.html());
+     console.log(contentDiv.text());
 
      // text to use with new paragraph
-     text = "It is one of his best works!"
+     var text = "It is one of his best works!";
      //create a paragraph
      let newP = $("<p></p>");
      //TO DO: add text with html()
@@ -61,84 +62,85 @@ $(function () {
 /**
  * function to demo adding toggle to button
  *  */
- $(function () {
+$(function () {
     // TO DO: complete the function
     // get the button
-    let button = $('<button>Toggle</button>');
-    $('#slideContent').append(button);
+    let button = $('#toggleButton');
     // add a click function
-    button.on('click', function() {})
-        // get the parent div's p tags
-        
-        // for each p in the div
-            // if it has toggleHide class
-                //remove toggleHide class and add toggleShow class
-                // styling is controlled in the css
-            // otherwise assume it has the toggleShow class
-                //remove toggleShow and add toggleHide
-
-  });
-
-  // Add a click event listener to the button.
-  button.on('click', function() {
-      // show the model.
-      $('.lightbox').show();
-  });
-
+    button.on('click', function() {
+       // get the parent div's p tags
+       let pTags = $('#indexDiv p');
+       // for each p in the div
+       pTags.each(function(index, pTag) {
+           let currentClass = $(pTag).attr('class');
+           // if it has toggleHide class
+           if(currentClass === 'toggleHide'){
+               //remove toggleHide class and add toggleShow class
+               // styling is controlled in the css
+               $(this).removeClass('toggleHide').addClass('toggleShow');
+               // otherwise assume it has the toggleShow class
+               //remove toggleShow and add toggleHide
+           }
+           else if(currentClass === 'toggleShow'){
+               $(this).removeClass('toggleShow').addClass('toggleHide');
+           }
+    });
+});
 // FORM JQUERY
-// TO DO: import form validation functions with alias
-
+// TO DO: import form validation functions with alias 
+// DONE AT TOP OF FILE.
 // if the submit button is on the page
  if ($("#btnRegSubmit")) {
     // TO DO: add a click function that calls a callback function
      $("#btnRegSubmit").click(function (e) {
         // prevent the default submit action (stay on the page)
-
+        e.preventDefault();
         // create a new user
-        // you normally wouldn't do this unless you had validated, but we're going to do it to show how class memebers work in calling the validation
-
+        // you normally wouldn't do this unless you had validated, but we're going to do it to show how class members work in calling the validation
             // get the first name input
-
+            var userFName = $('#inputFirst').val();
             // get the last name input
-
+            var userLName = $('#inputLast').val();
             // get the username input
-
+            var userName = $('#inputUsername').val();
             // get the email input
-
+            var userEmail = $('#inputEmail').val();
             // get the password input
-
-
+            var userPassword = $('#inputPassword').val();
+            var newUser = new user(userFName, userLName, userName, userEmail, userPassword);
 
         // debug statement for object
-         console.log(`UserDetails: ${user.displayUser()}`)
+        console.log(`UserDetails: ${newUser.displayUser()}`);
 
         // validate first name
-
+        $(".errorMessage:first").append(validFirst(userFName));
         // validate last name
-
+        $(".errorMessage:eq(1)").append(validLast(userLName));
         // validate  username
-
+        $(".errorMessage:eq(2)").append(validUsername(userName));
         // validate confirm password
-
- });
- }
+        $(".errorMessage:eq(4)").append(validPassword(userPassword));
+        $(".errorMessage:eq(5)").append(validPassword(userPassword));
+    });
+}
 
 // TO DO: if reset button present
-
+if ($("#btnReset")) {
     // bind a click event handler
-
+    $("#btnReset").click(function () {
         // clear out all error message paragraphs
-
+        $('.errorMessage p').html("<p></p>");
+    });
+}
 
 
 
 // SLIDESHOW
 // TO DO: if there's a gallery class on the page
-
+if ($(".gallery")) {
     // call a callback function to handle the gallery rotation
-
-
         // get the image tag
+        let imageTag = $("#imageRotation");
         // get a list of your images
          let images = [
              "./images/portraits/portrait-01.jpg",
@@ -159,29 +161,26 @@ $(function () {
              "./images/portraits/portrait-16.jpg",
              "./images/portraits/portrait-17.jpg",
              "./images/portraits/portrait-18.jpg",
-
-         ]
-
-
-
+         ];
         // set a first index
-
+        var currentIndex = 0;
         // call the setInterval method that will re-call this method at a set interval
-
-            // increment the image index but no greater than how many images you have
-
+        setInterval(function () { 
+            // increment the image index but no greater than how many images you have  
             // fade out the current image
-
+            imageTag.fadeOut(1000, function() {
                 // $(this) refers to the object that calls the callback or in this case galleryImage
                 // change the src attribute of the image
-
-                // fade it back in
-
-                // debug statement
-
-            //set the time for more than how long the fade out and in process will take or you won't get the images you expect
-
-
-
-
-
+                $(this).attr("src", images[currentIndex]);
+                currentIndex++;
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                } 
+            });
+            // fade it back in
+            imageTag.fadeIn(1000);
+            // debug statement
+            console.log("Images Rotated Successfully!");
+        //set the time for more than how long the fade out and in process will take or you won't get the images you expect 
+        }, 3000);  
+}})
