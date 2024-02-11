@@ -70,7 +70,9 @@ contactUsNavLink.appendChild(contactIcon);
 // Grabbing the footer div and creating the elements needed for the fixed bottom nav bar.
 let footerNavString = "Copyright 2024, Jakob Olive";
 let footerDiv = document.getElementById("footer");
+footerDiv.classList.add("transparent");
 let containerDiv = document.createElement("div");
+containerDiv.classList.add("transparent");
 let bottomNavBar = document.createElement("nav");
 let bottomNavBarText = document.createElement("p");
 let bottomNavBarTextNode = document.createTextNode(footerNavString)
@@ -300,7 +302,7 @@ if (document.getElementById("aboutUsPage")){
 
     // Creating required elements and text nodes to hold the page contents.
     let aboutUsPagePictureElement = document.createElement("img");
-    aboutUsPagePictureElement.setAttribute("src", "");
+    aboutUsPagePictureElement.setAttribute("src", "./images/myAi.png");
     let aboutUsPageHeaderElement = document.createElement("h1");
     let aboutUsPageParagraphElement = document.createElement("p");
 
@@ -454,11 +456,31 @@ if (document.getElementById("contactUsPage")){
         await sleep(3000);
 
         location.replace("./HomePage.html");
-        
       };
 }
 
 // This section checks for the body id of humanResourcesPage and populates the HumanResourcesPage.html appropriately.
 if (document.getElementById("humanResourcesPage")){
+    // Define the strings needed for the h1, h2, and p tags.
+    let mainHeaderString = "The Face Behind The Madness Is Also HR.";
+    let mainParagraphString = `In reality, There were no descriptions in the assignment document as to what to put in the Human Resources page, 
+    so we will keep it nice and simple. The contents of this page is a copy and paste version of the About Us page, just with different text strings.
+     If you really wish to contact Human Resources, perhaps to report a bug, please go to the contact us page and submit a message, we will 
+     be sure to look at it.`;
 
+    // Creating required elements and text nodes to hold the page contents.
+    let aboutUsPagePictureElement = document.createElement("img");
+    aboutUsPagePictureElement.setAttribute("src", "./images/myAi.png");
+    let aboutUsPageHeaderElement = document.createElement("h1");
+    let aboutUsPageParagraphElement = document.createElement("p");
+
+    let aboutUsPageHeaderText = document.createTextNode(mainHeaderString);
+    let aboutUsPageParagraphText = document.createTextNode(mainParagraphString);
+
+    // Appending all nodes and elements together and then onto the content variable.
+    aboutUsPageHeaderElement.appendChild(aboutUsPageHeaderText);
+    aboutUsPageParagraphElement.appendChild(aboutUsPageParagraphText);
+    content.appendChild(aboutUsPagePictureElement);
+    content.appendChild(aboutUsPageHeaderElement);
+    content.appendChild(aboutUsPageParagraphElement);
 }
