@@ -1,0 +1,67 @@
+<!--
+    Name: Jakob Olive
+    Date: 2024-01-28
+    Course: INFT 2202
+    File: ServicesPage.html
+    File Desc: As most of the body content of the webpages are to be added using DOM manipulation, this html page only has a hard coded 
+            navbar from bootstraps with several ids along with a few divisions with varying ids to assist in placements and locations in
+            the app.js file.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Services</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./style/App.css" />
+        <script src="https://kit.fontawesome.com/78c7d960b6.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	</head>
+	<body class="background" id="servicesPage">
+		<div id="content">
+            <nav id="topNav" class="navbar navbar-expand-lg bg-body-tertiary;" style="background-color: transparent;">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="#">INFT 2202 Lab 1 <i class="fa-solid fa-clipboard"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul id="nav_list" class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a id="home" class="nav-link" href="./HomePage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="product" class="nav-link" href="./ProductPage.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="services" class="nav-link active" aria-current="page" href="./ServicesPage.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="aboutUs" class="nav-link" href="./AboutUsPage.html">About Us</a>
+                    </li>
+                    <li id="contactUsList" class="nav-item">
+                        <a id="contactUs" class="nav-link" href="./ContactUsPage.html">Contact Us</a>
+                    </li>
+                    </ul>
+                    <span class="navbar-text">
+                    Navbar Generated From Bootstrap
+                    </span>
+                </div>
+                </div>
+            </nav>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div id="footer">
+            
+        </div>
+		<script src="./script/App.js"></script>
+	</body>
+</html>
