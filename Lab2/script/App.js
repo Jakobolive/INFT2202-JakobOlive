@@ -511,3 +511,114 @@ if (document.getElementById("humanResourcesPage")){
     content.appendChild(aboutUsPageHeaderElement);
     content.appendChild(aboutUsPageParagraphElement);
 }
+// LAB 2 SECTION JQUERY AND FORM VALIDATION.
+// This section checks for the body id for the loginPage, and builds the login form appropriately.
+if (document.getElementById("loginPage")){
+    // First an IFFY to create the login form before the validation begins.
+    $(function() {
+        let loginForm = `
+                        <h2>Login</h2>
+                        </br>
+                        <form id="loginForm">
+                        <div class="center" id="first-group">
+                            <i class="fa-solid fa-user"></i>
+                            <input
+                                type="text"
+                                id="usernameInput"
+                                placeholder="Enter Your Username"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="second-group">
+                            <i class="fa-solid fa-lock"></i>
+                            <input
+                                type="password"
+                                id="passwordInput"
+                                placeholder="Enter Your Password"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="third-group">
+                        <button type="submit" class="btn btn-light" id="loginBtn">
+				            Login
+                        </div>
+			            </button>
+                        </form>`;
+    
+        // Appending the login form to the <div> with the content id.
+        $('#content').append(loginForm);
+    });
+}
+// This section checks for the body id for the registrationPage, and builds the Registration form appropriately.
+if (document.getElementById("registerPage")){
+    // First an IFFY to build the registration form before validation can begin.
+    $(function() {
+        let registerForm = `
+                        <h2>Register Here <i class="fa-solid fa-user"></i></h2>
+                        </br>
+                        <form id="registerForm">
+                        <div class="center" id="first-group">
+                            <input
+                                type="text"
+                                id="firstNameInput"
+                                placeholder="First Name"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="second-group">
+                            <input
+                                type="text"
+                                id="lastNameInput"
+                                placeholder="Last Name"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="third-group">
+                            <input
+                                type="text"
+                                id="emailInput"
+                                placeholder="Email Address"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="fourth-group">
+                            <input
+                                type="password"
+                                id="passwordInput"
+                                placeholder="Password"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="fifth-group">
+                            <input
+                                type="password"
+                                id="confirmPasswordInput"
+                                placeholder="Confirm Password"
+                                required
+                            />
+                            <div class="ErrorMessage"></div>
+                        </div>
+                        </br>
+                        <div class="center" id="sixth-group">
+                        <button type="Register" class="btn btn-light" id="registerBtn">
+				            Register
+                        </div>
+			            </button>
+                        </form>`;
+    
+        // Appending the login form to the <div> with the content id.
+        $('#content').append(registerForm);
+    });
+}
