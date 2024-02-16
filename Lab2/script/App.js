@@ -5,7 +5,8 @@
     File: App.js
     File Desc: This is the main file that populates and operates the app. This page using DOM manipulation to check which page is which, and
         populate the page with the appropriate data. This file will also create a nav bar at the bottom of the page as requested in the 
-        assignment document as well as ...
+        assignment document as well as perform the form validation imported from the Form.js file and the internal action of the forms as
+        required in lab2.
 */
 
 /*
@@ -22,9 +23,6 @@ let contactUsList = document.getElementById("contactUsList");
 let humanResourcesList = document.createElement("li");
 let humanResourcesText = document.createElement("a");
 humanResourcesText.setAttribute("id", "hr");
-let loginList = document.createElement("li");
-let loginText = document.createElement("a");
-loginText.setAttribute("id", "login");
 let registerList = document.createElement("li");
 let registerText = document.createElement("a");
 registerText.setAttribute("id", "register");
@@ -32,17 +30,12 @@ registerText.setAttribute("id", "register");
 // Creating text nodes and adding elements and classes to the future tags.
 let humanResourcesTextNode = document.createTextNode("Human Resources ");
 humanResourcesText.appendChild(humanResourcesTextNode);
-let loginTextNode = document.createTextNode("Login ");
-loginText.appendChild(loginTextNode);
 let registerTextNode = document.createTextNode("Register ");
 registerText.appendChild(registerTextNode);
 
 humanResourcesText.href = "./HumanResourcesPage.html";
 humanResourcesList.classList.add("nav-item");
 humanResourcesText.classList.add("nav-link");
-loginText.href = "./LoginPage.html";
-loginList.classList.add("nav-item");
-loginText.classList.add("nav-link");
 registerText.href = "./RegisterPage.html";
 registerList.classList.add("nav-item");
 registerText.classList.add("nav-link");
@@ -50,8 +43,6 @@ registerText.classList.add("nav-link");
 // Appending the tags together and then inserting them into the nav bar.
 humanResourcesList.appendChild(humanResourcesText);
 topNavBar.insertBefore(humanResourcesList, contactUsList);
-loginList.appendChild(loginText);
-topNavBar.append(loginList);
 registerList.appendChild(registerText);
 topNavBar.append(registerList);
 
@@ -63,7 +54,6 @@ let serviceNavLink = document.getElementById("services");
 let aboutUsNavLink = document.getElementById("aboutUs");
 let hRNavLink = document.getElementById("hr");
 let contactUsNavLink = document.getElementById("contactUs");
-let loginLink = document.getElementById("login");
 let registerLink = document.getElementById("register");
 
 // Creating <i> tags to set classes to.
@@ -79,8 +69,6 @@ let hrIcon = document.createElement("i");
 hrIcon.classList.add("fa-solid", "fa-user");
 let contactIcon = document.createElement("i");
 contactIcon.classList.add("fa-solid", "fa-phone");
-let loginIcon = document.createElement("i");
-loginIcon.classList.add("fa-solid", "fa-lock");
 let registerIcon = document.createElement("i");
 registerIcon.classList.add("fa-solid", "fa-pen-to-square");
 
@@ -91,7 +79,6 @@ serviceNavLink.appendChild(servIcon);
 aboutUsNavLink.appendChild(aboutIcon);
 hRNavLink.appendChild(hrIcon);
 contactUsNavLink.appendChild(contactIcon);
-loginLink.appendChild(loginIcon);
 registerLink.appendChild(registerIcon);
 
 // Grabbing the footer div and creating the elements needed for the fixed bottom nav bar.
@@ -512,6 +499,22 @@ if (document.getElementById("humanResourcesPage")){
     content.appendChild(aboutUsPageParagraphElement);
 }
 // LAB 2 SECTION JQUERY AND FORM VALIDATION.
+// Adding a button to replace where it says"built from bootstraps.
+$(function() {
+    let loginButton = `<button id="loginButton">Login <i class="fa-solid fa-unlock"></i></button>`
+    $(".navbar-text").html(loginButton);
+    // Adding functionality to the button.
+    $("#loginButton").click(function() {
+        window.location.href = "./LoginPage.html";
+    })
+});
+
+/*
+    Section that will build the pages and add the functionality required for lab 2 using jquery and javascript. The following will be both
+    an if statement that checks if the page is the login page and the registration page, the pages will be built accordingly via an IFFY.
+    The pages will then create the required functionality for each according to the assignment document.
+*/
+
 // This section checks for the body id for the loginPage, and builds the login form appropriately.
 if (document.getElementById("loginPage")){
     // First an IFFY to create the login form before the validation begins.
@@ -552,6 +555,12 @@ if (document.getElementById("loginPage")){
         // Appending the login form to the <div> with the content id.
         $('#content').append(loginForm);
     });
+
+    // Functionality for the login page that will place the username entered between the contact us link and the register link in the 
+    // upper navbar.
+    $("#loginBtn").click(function(e) {
+        e.preventDefault();
+    })
 }
 // This section checks for the body id for the registrationPage, and builds the Registration form appropriately.
 if (document.getElementById("registerPage")){
@@ -618,7 +627,7 @@ if (document.getElementById("registerPage")){
 			            </button>
                         </form>`;
     
-        // Appending the login form to the <div> with the content id.
+        // Appending the register form to the <div> with the content id.
         $('#content').append(registerForm);
     });
 }
