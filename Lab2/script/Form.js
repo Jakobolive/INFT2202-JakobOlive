@@ -106,7 +106,7 @@ export function validateRegConfirmPassword(regConfirmPassword) {
     if (regConfirmPassword.length < 6) {
         return "<p>The <b>Confirm Password</b> you have entered is too short, please try again with valid data.</p>"
     }
-    else if (regConfirmPassword = regPassword) {
+    else if (regConfirmPassword == regPassword) {
         return "<p>The <b>Confirm Password</b> and <b>Password</b> you have entered do not match, please try again with valid data.</p>"
     }
     else {

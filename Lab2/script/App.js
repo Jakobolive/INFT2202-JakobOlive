@@ -8,6 +8,11 @@
         assignment document as well as perform the form validation imported from the Form.js file and the internal action of the forms as
         required in lab2.
 */
+/**
+ * IMPORT SECTION FOR LAB2.
+ */
+import { validateLoginUsername as userLoginValid, validateLoginPassword as passLoginValid, validateRegFirstName as firstNameValid, validateRegLastName as lastNameValid, validateRegUsername as usernameValid,  validateRegEmail as emailValid, validateRegPassword as passwordValid, validateRegConfirmPassword as confirmPasswordValid} from './Form.js';
+import { User as currentUser} from './User.js';
 
 /*
     Section that will change the current html top navbar on all pages, changing the product link to interests, adding the human resources link,
@@ -498,10 +503,12 @@ if (document.getElementById("humanResourcesPage")){
     content.appendChild(aboutUsPageHeaderElement);
     content.appendChild(aboutUsPageParagraphElement);
 }
+
+//
 // LAB 2 SECTION JQUERY AND FORM VALIDATION.
 // Adding a button to replace where it says"built from bootstraps.
 $(function() {
-    let loginButton = `<button id="loginButton">Login <i class="fa-solid fa-unlock"></i></button>`
+    let loginButton = `<button id="loginButton">Login <i class="fa-solid fa-lock"></i></button>`
     $(".navbar-text").html(loginButton);
     // Adding functionality to the button.
     $("#loginButton").click(function() {
@@ -516,7 +523,7 @@ $(function() {
 */
 
 // This section checks for the body id for the loginPage, and builds the login form appropriately.
-if (document.getElementById("loginPage")){
+if (document.getElementById("loginPage")) { 
     // First an IFFY to create the login form before the validation begins.
     $(function() {
         let loginForm = `
@@ -546,7 +553,7 @@ if (document.getElementById("loginPage")){
                         </div>
                         </br>
                         <div class="center" id="third-group">
-                        <button type="submit" class="btn btn-light" id="loginBtn">
+                        <button type="submit" class="btn btn-light" id="buttonLogin">
 				            Login
                         </div>
 			            </button>
@@ -555,15 +562,47 @@ if (document.getElementById("loginPage")){
         // Appending the login form to the <div> with the content id.
         $('#content').append(loginForm);
     });
-
-    // Functionality for the login page that will place the username entered between the contact us link and the register link in the 
-    // upper navbar.
-    $("#loginBtn").click(function(e) {
-        e.preventDefault();
-    })
 }
+
+// Functionality for the login page that will place the username entered between the contact us link and the register link in the 
+// upper navbar.
+if ($('#buttonLogin')) {
+    $('#buttonLogin').click(function (e) {
+        // Preventing the default submission.
+        e.preventDefault();
+        // Empty all ErrorMessage div's if needed.
+        $('.ErrorMessage p').html("<p></p>");
+        // Grabbing the values of the inputs.
+        var loginUsername = $('#usernameInput').val();
+        var loginPassword = $('#passwordInput').val();
+        // Validate the user input that the password and username are within character range or more than 6 and 2, otherwise spit out error message.
+        $('.ErrorMessage:first').append(userLoginValid(loginUsername));
+        $('.ErrorMessage:eq(1)').append(passLoginValid(loginPassword));
+        // Checking if any of the ErrorMessage <p> tags contain text (if they are active or not.)
+        var noLoginErrors = true;
+        $('.ErrorMessage p').each(function() {
+            if ($(this).text() !== "") {
+                noLoginErrors = false;
+                return false;
+            }
+        });
+        // If statement that checks if the noLoginError bool is true, if so it will start the function of adding the Username to the top nav.
+        if (noLoginErrors) {
+            // Creating the dynamic nav with the username.
+            let usernameNav = `<li id="usernameList" class="nav-item">
+                            <a id="username" class="nav-link">` + loginUsername + ` <i class="fa-solid fa-unlock"></i></a>
+                                </li>`; 
+            // Grabbing the contactUs link using JQuery and adding the new <li> after.
+            $('#contactUs').after(usernameNav);
+            // Empty the values within the login form.
+            $('#usernameInput').val("");
+            $('#passwordInput').val("");
+        }
+    });
+}
+
 // This section checks for the body id for the registrationPage, and builds the Registration form appropriately.
-if (document.getElementById("registerPage")){
+if (document.getElementById("registerPage")) {
     // First an IFFY to build the registration form before validation can begin.
     $(function() {
         let registerForm = `
@@ -601,6 +640,16 @@ if (document.getElementById("registerPage")){
                         </div>
                         </br>
                         <div class="center" id="fourth-group">
+                        <input
+                            type="text"
+                            id="usernameInput"
+                            placeholder="Username"
+                            required
+                        />
+                        <div class="ErrorMessage"></div>
+                    </div>
+                    </br>
+                        <div class="center" id="fifth-group">
                             <input
                                 type="password"
                                 id="passwordInput"
@@ -610,7 +659,7 @@ if (document.getElementById("registerPage")){
                             <div class="ErrorMessage"></div>
                         </div>
                         </br>
-                        <div class="center" id="fifth-group">
+                        <div class="center" id="sixth-group">
                             <input
                                 type="password"
                                 id="confirmPasswordInput"
@@ -620,7 +669,7 @@ if (document.getElementById("registerPage")){
                             <div class="ErrorMessage"></div>
                         </div>
                         </br>
-                        <div class="center" id="sixth-group">
+                        <div class="center" id="seventh-group">
                         <button type="Register" class="btn btn-light" id="registerBtn">
 				            Register
                         </div>
@@ -629,5 +678,52 @@ if (document.getElementById("registerPage")){
     
         // Appending the register form to the <div> with the content id.
         $('#content').append(registerForm);
+    });
+}
+
+// Functionality that will take the user input, validate it and use the imported constructor method to create a new User. Once the new
+// User is created, it will be displayed in the console using a function.
+if ($('#registerBtn')) {
+    $('#registerBtn').click(function (e) {
+        // Preventing the default submission.
+        e.preventDefault();
+        // Empty all ErrorMessage div's if needed.
+        $('.ErrorMessage p').html("<p></p>");
+        // Grabbing the values of the inputs.
+        var regFirstName = $('#firstNameInput').val();
+        var regLastName = $('#lastNameInput').val();
+        var regEmail = $('#emailInput').val();
+        var regUsername = $('#usernameInput').val();
+        var regPassword = $('#passwordInput').val();
+        var regConfirmPassword = $('#confirmPasswordInput').val();
+        // Validate the user input that the password and username are within character range or more than 6 and 2, otherwise spit out error message.
+        $('.ErrorMessage:first').append(firstNameValid(regFirstName));
+        $('.ErrorMessage:eq(1)').append(lastNameValid(regLastName));
+        $('.ErrorMessage:eq(2)').append(emailValid(regEmail));
+        $('.ErrorMessage:eq(3)').append(usernameValid(regUsername));
+        $('.ErrorMessage:eq(4)').append(passwordValid(regPassword));
+        $('.ErrorMessage:eq(5)').append(confirmPasswordValid(regConfirmPassword));
+        // Checking if any of the ErrorMessage <p> tags contain text (if they are active or not.)
+        var noRegErrors = true;
+        $('.ErrorMessage p').each(function() {
+            if ($(this).text() !== "") {
+                noRegErrors = false;
+                return false;
+            }
+        });
+        // If statement that checks if the noRegError bool is true, if so it will start the function of adding the Username to the top nav.
+        if (noRegErrors) {
+            // Calling the constructor to make a new User.
+            var newUser = new currentUser(regFirstName, regLastName, regUsername, regEmail, regPassword) 
+            // Displaying the user object on the console.
+            console.log(`User Details:\n ${newUser.displayUser()}`);
+            // Empty the values within the registration form.
+            $('#firstNameInput').val("");
+            $('#lastNameInput').val("");
+            $('#emailInput').val("");
+            $('#usernameInput').val("");
+            $('#passwordInput').val("");
+            $('#confirmPasswordInput').val("");
+        }
     });
 }
