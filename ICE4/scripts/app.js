@@ -110,7 +110,7 @@ $(function () {
             var newUser = new user(userFName, userLName, userName, userEmail, userPassword);
 
         // debug statement for object
-        console.log(`UserDetails: ${newUser.displayUser()}`);
+        console.log(`User Details:\n ${newUser.displayUser()}`);
 
         // validate first name
         $(".errorMessage:first").append(validFirst(userFName));
