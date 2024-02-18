@@ -27,11 +27,13 @@ export class User {
     }
 
     /**
+     * This function will formate the variables from the user object and return them as a string.
      * @property {function} displayUser Returns the user details in a formatted way to be called in a console.print statement.
      * @returns {string} That will be printed to the console.
      */
     displayUser() {
-         return `First Name: ${this.firstName}
+         return `
+         First Name: ${this.firstName}
          Last Name: ${this.lastName}
          Username: ${this.username}
          Email: ${this.emailAddress}

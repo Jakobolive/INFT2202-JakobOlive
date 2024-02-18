@@ -77,7 +77,7 @@ export function validateRegEmail(regEmail) {
     else if (!regEmail.includes('@')) {
         return "<p>The <b>Email Address</b> you have entered does not contain a <b>@</b> symbol, please try again with valid data.</p>"
     }
-    else if (!regEmail.includes('.com') || !regEmail.includes(".ca") ) {
+    else if (!regEmail.includes('.com') && !regEmail.includes(".ca") ) {
         return "<p>The <b>Email Address</b> you have entered does not contain <b>.com</b> or <b>.ca</b>, please try again with valid data.</p>"
     }
     else {
@@ -100,13 +100,14 @@ export function validateRegPassword(regPassword) {
 /**
  * validateRegConfirmPassword - Validates the Users Confirm Password entry through the register form.
  * @param {string} regConfirmPassword
+ * @param {string} regPassword
  * @returns HTML Element to be inserted into the ErrorMessage <div> tag.
  */
-export function validateRegConfirmPassword(regConfirmPassword) {
+export function validateRegConfirmPassword(regConfirmPassword, regPassword) {
     if (regConfirmPassword.length < 6) {
         return "<p>The <b>Confirm Password</b> you have entered is too short, please try again with valid data.</p>"
     }
-    else if (regConfirmPassword == regPassword) {
+    else if (regConfirmPassword !== regPassword) {
         return "<p>The <b>Confirm Password</b> and <b>Password</b> you have entered do not match, please try again with valid data.</p>"
     }
     else {

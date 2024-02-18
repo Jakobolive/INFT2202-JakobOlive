@@ -528,6 +528,7 @@ if (document.getElementById("loginPage")) {
     $(function() {
         let loginForm = `
                         <h2>Login</h2>
+                        <p>No Account? <a href="./RegisterPage.html">Click Here</a> To Sign Up</p>
                         </br>
                         <form id="loginForm">
                         <div class="center" id="first-group">
@@ -555,8 +556,8 @@ if (document.getElementById("loginPage")) {
                         <div class="center" id="third-group">
                         <button type="submit" class="btn btn-light" id="buttonLogin">
 				            Login
-                        </div>
 			            </button>
+                        </div>
                         </form>`;
     
         // Appending the login form to the <div> with the content id.
@@ -566,18 +567,18 @@ if (document.getElementById("loginPage")) {
 
 // Functionality for the login page that will place the username entered between the contact us link and the register link in the 
 // upper navbar.
-if ($('#buttonLogin')) {
-    $('#buttonLogin').click(function (e) {
+$(document).ready(function() {
+    $('#buttonLogin').click(function (event) {
         // Preventing the default submission.
-        e.preventDefault();
+        event.preventDefault();
         // Empty all ErrorMessage div's if needed.
         $('.ErrorMessage p').html("<p></p>");
         // Grabbing the values of the inputs.
         var loginUsername = $('#usernameInput').val();
         var loginPassword = $('#passwordInput').val();
         // Validate the user input that the password and username are within character range or more than 6 and 2, otherwise spit out error message.
-        $('.ErrorMessage:first').append(userLoginValid(loginUsername));
-        $('.ErrorMessage:eq(1)').append(passLoginValid(loginPassword));
+        $('.ErrorMessage:first').html(userLoginValid(loginUsername));
+        $('.ErrorMessage:eq(1)').html(passLoginValid(loginPassword));
         // Checking if any of the ErrorMessage <p> tags contain text (if they are active or not.)
         var noLoginErrors = true;
         $('.ErrorMessage p').each(function() {
@@ -593,13 +594,13 @@ if ($('#buttonLogin')) {
                             <a id="username" class="nav-link">` + loginUsername + ` <i class="fa-solid fa-unlock"></i></a>
                                 </li>`; 
             // Grabbing the contactUs link using JQuery and adding the new <li> after.
-            $('#contactUs').after(usernameNav);
+            $('#contactUsList').after(usernameNav);
             // Empty the values within the login form.
             $('#usernameInput').val("");
             $('#passwordInput').val("");
         }
     });
-}
+})
 
 // This section checks for the body id for the registrationPage, and builds the Registration form appropriately.
 if (document.getElementById("registerPage")) {
@@ -607,6 +608,7 @@ if (document.getElementById("registerPage")) {
     $(function() {
         let registerForm = `
                         <h2>Register Here <i class="fa-solid fa-user"></i></h2>
+                        <p>Already Have An Account? <a href="./LoginPage.html">Click Here</a></p>
                         </br>
                         <form id="registerForm">
                         <div class="center" id="first-group">
@@ -670,10 +672,10 @@ if (document.getElementById("registerPage")) {
                         </div>
                         </br>
                         <div class="center" id="seventh-group">
-                        <button type="Register" class="btn btn-light" id="registerBtn">
+                        <button type="submit" class="btn btn-light" id="registerBtn">
 				            Register
-                        </div>
 			            </button>
+                        </div>
                         </form>`;
     
         // Appending the register form to the <div> with the content id.
@@ -683,10 +685,10 @@ if (document.getElementById("registerPage")) {
 
 // Functionality that will take the user input, validate it and use the imported constructor method to create a new User. Once the new
 // User is created, it will be displayed in the console using a function.
-if ($('#registerBtn')) {
-    $('#registerBtn').click(function (e) {
+$(document).ready(function() {
+    $('#registerBtn').click(function (event) {
         // Preventing the default submission.
-        e.preventDefault();
+        event.preventDefault();
         // Empty all ErrorMessage div's if needed.
         $('.ErrorMessage p').html("<p></p>");
         // Grabbing the values of the inputs.
@@ -697,12 +699,12 @@ if ($('#registerBtn')) {
         var regPassword = $('#passwordInput').val();
         var regConfirmPassword = $('#confirmPasswordInput').val();
         // Validate the user input that the password and username are within character range or more than 6 and 2, otherwise spit out error message.
-        $('.ErrorMessage:first').append(firstNameValid(regFirstName));
-        $('.ErrorMessage:eq(1)').append(lastNameValid(regLastName));
-        $('.ErrorMessage:eq(2)').append(emailValid(regEmail));
-        $('.ErrorMessage:eq(3)').append(usernameValid(regUsername));
-        $('.ErrorMessage:eq(4)').append(passwordValid(regPassword));
-        $('.ErrorMessage:eq(5)').append(confirmPasswordValid(regConfirmPassword));
+        $('.ErrorMessage:first').html(firstNameValid(regFirstName));
+        $('.ErrorMessage:eq(1)').html(lastNameValid(regLastName));
+        $('.ErrorMessage:eq(2)').html(emailValid(regEmail));
+        $('.ErrorMessage:eq(3)').html(usernameValid(regUsername));
+        $('.ErrorMessage:eq(4)').html(passwordValid(regPassword));
+        $('.ErrorMessage:eq(5)').html(confirmPasswordValid(regConfirmPassword, regPassword));
         // Checking if any of the ErrorMessage <p> tags contain text (if they are active or not.)
         var noRegErrors = true;
         $('.ErrorMessage p').each(function() {
@@ -726,4 +728,4 @@ if ($('#registerBtn')) {
             $('#confirmPasswordInput').val("");
         }
     });
-}
+})
