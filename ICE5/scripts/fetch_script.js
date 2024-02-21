@@ -14,16 +14,18 @@ async function goFetch(url) {
     return data;
 }
 // for each url variable above, call the fetch function in a console.log
-console.log(goFetch(url_posts));
-console.log(goFetch(url_comments));
-console.log(goFetch(url_albums));
-//console.log(goFetch(url_photos));
-console.log(goFetch(url_todos));
-console.log(goFetch(url_users));
+goFetch(url_posts).then(data => console.log(data));
+goFetch(url_comments).then(data => console.log(data));
+goFetch(url_albums).then(data => console.log(data));
+goFetch(url_todos).then(data => console.log(data));
+goFetch(url_users).then(data => console.log(data));
+
 // from the photos url, put 2 random photos into the img elements in the html
-let photos = await goFetch(url_photos);
-let randomPhotos = photos.sort(() => Math.random() - 0.5).slice(0, 2);
-// to see the results, right click on the page and click inspect, and click the console tab
-console.log(randomPhotos);
-document.getElementById('photo1').src = randomPhotos[0].thumbnailUrl;
-document.getElementById('photo2').src = randomPhotos[1].thumbnailUrl;
+goFetch(url_photos)
+    .then(photos => {
+        let randomPhotos = photos.sort(() => Math.random() - 0.5).slice(0, 2);
+        // To see the results, right click on the page and click inspect, and click the console tab.
+        console.log(randomPhotos);
+        document.getElementById('photo1').src = randomPhotos[0].thumbnailUrl;
+        document.getElementById('photo2').src = randomPhotos[1].thumbnailUrl;
+    })
