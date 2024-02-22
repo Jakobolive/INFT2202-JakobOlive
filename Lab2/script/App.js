@@ -7,6 +7,7 @@
         populate the page with the appropriate data. This file will also create a nav bar at the bottom of the page as requested in the 
         assignment document as well as perform the form validation imported from the Form.js file and the internal action of the forms as
         required in lab2.
+        lab2 Done.
 */
 /**
  * IMPORT SECTION FOR LAB2.
