@@ -1,0 +1,15 @@
+{
+  "name": "inft2202-repos",
+  "version": "1.0.0",
+  "description": "Defauly npm for lab2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jakob Olive",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "bootstrap": "^5.3.2"
+  }
+}
