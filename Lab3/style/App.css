@@ -96,5 +96,14 @@ img {
 	background-color: transparent;
 }
 
+.card {
+	margin-right: 30px;
+	margin-left: 30px;
+}
+
+.card:last-child {
+	margin-right: 30px;
+}
+
 #scriptResults {
 	padding-bottom: 10px;}
