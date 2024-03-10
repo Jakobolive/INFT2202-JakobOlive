@@ -32,12 +32,17 @@ humanResourcesText.setAttribute("id", "hr");
 let registerList = document.createElement("li");
 let registerText = document.createElement("a");
 registerText.setAttribute("id", "register");
+let blogList = document.createElement("li");
+let blogText = document.createElement("a");
+blogText.setAttribute("id", "blog");
 
 // Creating text nodes and adding elements and classes to the future tags.
 let humanResourcesTextNode = document.createTextNode("Human Resources ");
 humanResourcesText.appendChild(humanResourcesTextNode);
 let registerTextNode = document.createTextNode("Register ");
 registerText.appendChild(registerTextNode);
+let blogTextNode = document.createTextNode("Blog ");
+blogText.appendChild(blogTextNode);
 
 humanResourcesText.href = "./HumanResourcesPage.html";
 humanResourcesList.classList.add("nav-item");
@@ -45,12 +50,17 @@ humanResourcesText.classList.add("nav-link");
 registerText.href = "./RegisterPage.html";
 registerList.classList.add("nav-item");
 registerText.classList.add("nav-link");
+blogText.href = "./Blog.html";
+blogList.classList.add("nav-item");
+blogText.classList.add("nav-link");
 
 // Appending the tags together and then inserting them into the nav bar.
 humanResourcesList.appendChild(humanResourcesText);
 topNavBar.insertBefore(humanResourcesList, contactUsList);
 registerList.appendChild(registerText);
 topNavBar.append(registerList);
+blogList.appendChild(blogText);
+topNavBar.append(blogList);
 
 // Adding font awesome icons to the upper navbar.
 // First grabbing all the nav bar <a> tags to append into.
@@ -61,6 +71,7 @@ let aboutUsNavLink = document.getElementById("aboutUs");
 let hRNavLink = document.getElementById("hr");
 let contactUsNavLink = document.getElementById("contactUs");
 let registerLink = document.getElementById("register");
+let blogLink = document.getElementById("blog");
 
 // Creating <i> tags to set classes to.
 let homeIcon = document.createElement("i");
@@ -77,6 +88,8 @@ let contactIcon = document.createElement("i");
 contactIcon.classList.add("fa-solid", "fa-phone");
 let registerIcon = document.createElement("i");
 registerIcon.classList.add("fa-solid", "fa-pen-to-square");
+let blogIcon = document.createElement("i");
+blogIcon.classList.add("fa-solid", "fa-pencil");
 
 // Appending the <i> tags to the <a> tags.
 homeNavLink.appendChild(homeIcon);
@@ -86,6 +99,7 @@ aboutUsNavLink.appendChild(aboutIcon);
 hRNavLink.appendChild(hrIcon);
 contactUsNavLink.appendChild(contactIcon);
 registerLink.appendChild(registerIcon);
+blogLink.appendChild(blogIcon);
 
 // Grabbing the footer div and creating the elements needed for the fixed bottom nav bar.
 let footerNavString = "Copyright 2024, Jakob Olive";
