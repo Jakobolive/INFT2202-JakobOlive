@@ -113,7 +113,7 @@ let bottomNavBarTextNode = document.createTextNode(footerNavString)
 
 
 // Adding classes, appending together, and then appending to footer.
-bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary", "footerNav", "transparent");
+bottomNavBar.classList.add("navbar", "fixed-bottom", "navbar-expand-lg", "bg-body-tertiary");
 containerDiv.classList.add("container-fluid");
 bottomNavBarText.classList.add("navbar-brand");
 bottomNavBarText.appendChild(bottomNavBarTextNode);
@@ -755,34 +755,30 @@ if (document.getElementById("blogPage")) {
         for (let i = 0; i <= 6; i++) {
             let blogCard = `<div class="card-group">
                                 <div class="card">
-                                <img class="card-img-top" src="..." alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
+                                    <img class="card-img-top" src="" alt="Card image cap">
                                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                                 </div>
                                 <div class="card">
-                                <img class="card-img-top" src="..." alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
+                                    <img class="card-img-top" src="" alt="Card image cap">
                                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                                 </div>
                                 <div class="card">
-                                <img class="card-img-top" src="..." alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
+                                    <img class="card-img-top" src="" alt="Card image cap">
                                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                                 </div>
                             </div>
                             </br>`;
             
         // Appending the cards to the <div> with the content id.
-        
             $('#content').append(blogCard);
         }
     });

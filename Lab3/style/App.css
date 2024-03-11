@@ -87,18 +87,13 @@ img {
 	margin-right: auto;
 }
 
-.footerNav {
-	background-color: transparent;
-	text-align: center;
-}
-
-.transparent {
-	background-color: transparent;
-}
-
 .card {
 	margin-right: 30px;
 	margin-left: 30px;
+}
+
+.card-group .card {
+	border-radius: 25px !important;
 }
 
 .card:last-child {
