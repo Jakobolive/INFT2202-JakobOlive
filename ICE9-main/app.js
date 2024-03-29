@@ -7,10 +7,10 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
 // Connection URL for the database in use.
-const uri = 'mongodb://localhost:27017/ICE9Database'; // Replace 'myDatabase' with your actual database name
+const uri1 = 'mongodb+srv://jakolive01:A5mQ80UX8aGg7RBf@cluster0.malsbqy.mongodb.net/';
 
 // Connect to MongoDB using the URL defined above.
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri1)
     .then(() => {
         console.log('Connected to MongoDB');
         // You can start defining your models and performing operations here
@@ -47,7 +47,30 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+// Adding a body parser to deal with the form.
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true })); 
+
+// Handle POST request for form submission
+app.post('/submit-form', (req, res) => {
+    const message = req.body.yourMessageInput;
+    res.redirect(`/questions?message=${encodeURIComponent(message)}`);
+});
+
+// Display the submitted message
+app.get('/questions', (req, res) => {
+    const message = req.query.message;
+    // Check if message exists
+    const messageContent = message ? `<p class="lead text-center">${message}</p>` : '';
+   // Render the questions.hbs with the main layout with the message included
+   res.render('questions', {
+    messageContent: messageContent
+});
+});
+
 // Import and define the routes
 const usersRouter = require('./routes/user');
 
 app.use('/', usersRouter);
+app.use('/about', usersRouter);
+app.use('/questions', usersRouter);
