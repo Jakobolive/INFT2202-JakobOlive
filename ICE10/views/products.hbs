@@ -1,5 +1,23 @@
 
 <main class="container">
-    <h1 class="text-center">Welcome to ICE 9 INFT2202</h1>
+    <h1 class="text-center">Welcome to ICE 10 INFT2202</h1>
     <p class="lead text-center">This is a simple Express app with Handlebars templating.</p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Products</h2>
+            <div class="row">
+                {{#each products}}
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/products/{{this._id}}">{{this.product_name}} </a></h5>
+                                <p class="card-text">{{this.price}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
 </main>
