@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+
+<head>
+  <title>Jakob Olive - Test 3</title>
+  <link href="./css/app.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Jakob Olive</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Begin page content -->
+  <main class="flex-shrink-0">
+    <div class="container">
+      <h1 class="mt-5">INFT 2202: Animal Registry</h1>
+    </div>
+    <div class="container">
+      <hr>
+      <p class="lead">Section 1</p>
+      <p class="mb-0">In the container below:</p>
+      <ul>
+        <li>Create a form with 4 fields: name, heads, legs, sound</li>
+        <li>When this form gets submitted, it should call a method that makes a fetch call using the <code>POST</code> method to <code>/api/animal</code></li>
+        <li>Ensure you perform data validation on the input before making the call.</li>
+        <li>If the animal is successfully added, refresh the table below so it accurately reflects what's in the database.</li>
+        <li>If there is a problem adding the animal, show an error below the form that describes what the problem was.</li>
+        <li>Use Bootstrap classes to style the form and message area.</li>
+      </ul>
+    </div>
+    <div id="create-container" class="container">
+      <!-- put your create form here -->
+      <h1>Add Animal</h1>
+      <form id="animalForm" class="needs-validation" novalidate>
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" required>
+              <div class="invalid-feedback">
+                  Please provide a name.
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="heads">Heads</label>
+              <input type="number" class="form-control" id="heads" required>
+              <div class="invalid-feedback">
+                  Please provide the number of heads.
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="legs">Legs</label>
+              <input type="number" class="form-control" id="legs" required>
+              <div class="invalid-feedback">
+                  Please provide the number of legs.
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="sound">Sound</label>
+              <input type="text" class="form-control" id="sound" required>
+              <div class="invalid-feedback">
+                  Please provide a sound.
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <!-- put your create message area here -->
+      <div id="errorMessage" class="mt-3"></div>
+    </div>
+    <div class="container">
+      <hr>
+      <p class="lead">Section 2</p>
+      <p class="mb-0">In the container below:</p>
+      <ul>
+        <li>Call a method that makes a fetch call using the <code>GET</code> method to <code>/api/animal</code>.</li>
+        <li>If the call returns an empty array, display a message explaining that there are currently no animals in the
+          database.</li>
+        <li>If the call returns an array full of animals, display a table that lists all of them.</li>
+        <li>If the call returns an error, display a message explaining what the problem was.</li>
+        <li>Use Bootstrap classes to style the table and message area.</li>
+      </ul>
+    </div>
+    <div id="retrieve-container" class="container">
+      <!-- put your retrieve table here -->
+      <h1>Animal Database</h1>
+
+      <table id="animalTable" class="table" style="display: none;">
+        
+      </table>
+    
+      <!-- put your retrieve message area here -->
+      <div id="message" class="alert" role="alert" style="display: none;"></div>
+    </div>
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container">
+      <span class="text-body-secondary">&copy; 2024</span>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
