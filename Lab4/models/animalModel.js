@@ -5,9 +5,10 @@
     File: app.js
     File Desc: 
 */
-
+// Imports.
 import mongoose from 'mongoose';
 
+// Creating the animal schema to retrieve and formate data for mongoDB.
 const animalSchema = new mongoose.Schema({
     zoo: {
         type: String,
@@ -43,13 +44,7 @@ const animalSchema = new mongoose.Schema({
     }     
 });
 
-export default mongoose.model('Animal', animalSchema);
+// Exporting the animal schema.
+const animalModel = new mongoose.model('Animal', animalSchema);
+module.exports = animalModel;
 
-// . Zoo: String, required
-// ii. Scientific Name: String, required
-// iii. Common Name: String, required
-// iv. Given Name: String, required
-// v. Gender: String, required
-// vi. Date of Birth: String, required
-// vii. Age: Number, required
-// viii. isTransportable: Boolean, required
