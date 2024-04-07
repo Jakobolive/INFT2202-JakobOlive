@@ -5,6 +5,7 @@
 // put your code here
 document.getElementById('animalForm').addEventListener('submit', submitAnimalForm);
 
+
 /* 
  * This line should get the list of available animals, then render the table when the page loads.
  * It should use the getAnimals and renderAnimalTable methods below.
@@ -70,8 +71,29 @@ async function submitAnimalForm (event) {
     // put your code here
     event.preventDefault();
     const formData = new FormData(event.target);
+    const name = formData.get('name');
+    const heads = parseInt(formData.get('heads'));
+    const legs = parseInt(formData.get('legs'));
+    const sound = formData.get('sound');
+    console.log('Name:', name);
+    console.log('Heads:', heads);
+    console.log('Legs:', legs);
+    console.log('Sound:', sound);
+    // Data validation
+    if (isNaN(heads) || isNaN(legs) || heads < 0 || legs < 0 || !name.trim() || !sound.trim()) {
+        showError('Please provide valid inputs for the requested information.');
+        return;
+    }
+
+    // Convert FormData to JSON
+    const jsonData = {};
+    for (const [key, value] of formData.entries()) {
+        jsonData[key] = value;
+    }
+    const jsonBody = JSON.stringify(jsonData);
+
     try {
-        const response = await postAnimal(formData);
+        const response = await postAnimal(jsonBody);
         if (response.ok) {
             event.target.reset();
             const animals = await getAnimals();
@@ -95,12 +117,15 @@ async function submitAnimalForm (event) {
  * @param event;
  * @return Animal | Error
  */
-async function postAnimal (event) {
+async function postAnimal (jsonBody) {
     // put your code here
     try {
         const response = await fetch('/api/animal', {
             method: 'POST',
-            body: event
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: jsonBody
         });
         return response;
     } catch (err) {
