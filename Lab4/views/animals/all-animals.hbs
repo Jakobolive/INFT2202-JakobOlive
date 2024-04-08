@@ -1,0 +1,72 @@
+<main>
+    <h1>A List Of All The Animals Within Our System Will Be Pulled From The Database And Displayed Below</h1>
+    <h3>Animal List</h3>
+    <div class="container">
+	<div class="row">
+        {{#each animals}}
+            <div class="row">
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <td>Zoo</td>
+                        <td>{{this.zoo}}</td>
+                    </tr>
+                    <tr>
+                        <td>Scientific Name</td>
+                        <td>{{this.scientific_name}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Common Name</td>
+                        <td>{{this.common_name}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Given Name</td>
+                        <td>{{this.given_name}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Gender</td>
+                        <td>{{this.gender}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Date Of Birth</td>
+                        <td>{{this.date_of_birth}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Age</td>
+                        <td>{{this.age}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Transportability?</td>
+                        <td>{{this.is_transportable}}</td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+    </div>
+</main>
+
+
+
+
+
+{{!-- <main class="container">
+    <h1 class="text-center">Welcome to ICE 10 INFT2202</h1>
+    <p class="lead text-center">This is a simple Express app with Handlebars templating.</p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Products</h2>
+            <div class="row">
+                {{#each products}}
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/products/{{this._id}}">{{this.product_name}} </a></h5>
+                                <p class="card-text">{{this.price}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</main> --}}

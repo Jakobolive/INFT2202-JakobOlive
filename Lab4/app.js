@@ -3,7 +3,8 @@
     Date: 2024-04-04
     Course: INFT 2202
     File: app.js
-    File Desc: 
+    File Desc: This file will contain the nodemon and express server setup that will be used in the animal database application. This file will 
+    also house the base of the GET and POST routes used in the website as well as the database connection.
 */
 
 // Require the necessary modules
@@ -38,8 +39,10 @@ db.once('open', () => {
 });
 
 // Import and define the routes
-// const usersRouter = require('./routes/user');
-// const productRouter = require('./routes/products');
+const indexRouter = require('./routes/indexRoute');
+const animalRouter = require('./routes/animalRoute');
 
-// app.use('/products', productRouter);
-// app.use('/', usersRouter);
+// Use imported routes.
+app.use('/animals/entry-form', animalRouter);
+app.use('/animals/all-animals', animalRouter);
+app.use('/', indexRouter);

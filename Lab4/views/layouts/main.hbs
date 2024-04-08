@@ -10,11 +10,12 @@
 			crossorigin='anonymous'
 		/>
 		<link rel='stylesheet' type='text/css' href='/style.css' />
-		<title></title>
+		<title>{{>_title}}</title>
 	</head>
 	<body>
-
-		<div class='container'></div>
-
+		{{> _navbar}}
+		<div class='container'>
+			{{{body}}}
+		</div>
 	</body>
 </html>

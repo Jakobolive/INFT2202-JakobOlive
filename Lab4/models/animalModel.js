@@ -2,11 +2,11 @@
     Name: Jakob Olive
     Date: 2024-04-04
     Course: INFT 2202
-    File: app.js
+    File: animalModel.js
     File Desc: 
 */
 // Imports.
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // Creating the animal schema to retrieve and formate data for mongoDB.
 const animalSchema = new mongoose.Schema({
