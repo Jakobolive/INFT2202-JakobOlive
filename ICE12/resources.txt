@@ -1,0 +1,3 @@
+http://toon.io/understanding-passportjs-authentication-flow/
+
+https://www.passportjs.org/tutorials/password/
