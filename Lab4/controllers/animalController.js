@@ -14,8 +14,10 @@ exports.entryFormView = (req, res) => {
 exports.animalList = async (req, res) => {
     try {
       let animals = await animalModel.find().lean().exec();
-      res.render('animals/all-animals', {pageTitle: 'Animal Database: Animal List'}, {animals: animals});
+      res.render('animals/all-animals', { pageTitle: 'Animal Database: Animal List', animals: animals});
     } catch (err) {
       res.status(500).send(err);
     }
   };
+
+

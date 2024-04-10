@@ -12,6 +12,7 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 // Load the environment variables
 dotenv.config();
 
@@ -38,11 +39,13 @@ db.once('open', () => {
     console.log('Connected to MongoDB');
 });
 
+// Create the body parser to pass to the routs.
+let codeParser = bodyParser.urlencoded({extended: false});
+
 // Import and define the routes
 const indexRouter = require('./routes/indexRoute');
 const animalRouter = require('./routes/animalRoute');
 
 // Use imported routes.
-app.use('/animals/entry-form', animalRouter);
-app.use('/animals/all-animals', animalRouter);
-app.use('/', indexRouter);
+app.use('/animals/', codeParser, animalRouter);
+app.use('/', codeParser, indexRouter);

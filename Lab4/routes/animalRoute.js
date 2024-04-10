@@ -10,9 +10,10 @@
 const express = require('express');
 const router = express.Router();
 const animalController = require('../controllers/animalController');
+
 // Use Get commands.
-router.get('/', animalController.entryFormView);
-router.get('/', animalController.animalList);
+router.get('/all-animals', animalController.animalList);
+router.get('/entry-form', animalController.entryFormView);
 
 // Export the router.
 module.exports = router;

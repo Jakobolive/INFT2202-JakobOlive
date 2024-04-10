@@ -3,7 +3,7 @@
     Date: 2024-04-04
     Course: INFT 2202
     File: animalModel.js
-    File Desc: 
+    File Desc: This file will contain the client side copy of the data structure for the animals held within the MongoDB database collection.
 */
 // Imports.
 const mongoose = require('mongoose');
@@ -45,6 +45,6 @@ const animalSchema = new mongoose.Schema({
 });
 
 // Exporting the animal schema.
-const animalModel = new mongoose.model('Animal', animalSchema);
+const animalModel = new mongoose.model('Animals', animalSchema);
 module.exports = animalModel;
 

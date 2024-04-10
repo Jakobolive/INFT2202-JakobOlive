@@ -36,10 +36,11 @@
                     </tr>
                     <tr>
                         <td colspan="2">Transportability?</td>
-                        <td>{{this.is_transportable}}</td>
+                        <td>{{#if this.is_transportable}}Yes{{else}}No{{/if}}</td>
                     </tr>
                 </table>
             </div>
+        {{/each}}
     </div>
     </div>
 </main>

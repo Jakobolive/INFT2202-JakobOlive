@@ -34,6 +34,7 @@ let urlcodeParser = bodyParser.urlencoded({extended: false});
 const usersRouter = require('./routes/user');
 const productRouter = require('./routes/products');
 
+
 app.use('/products', urlcodeParser, productRouter);
 app.use('/', urlcodeParser, usersRouter);
 
