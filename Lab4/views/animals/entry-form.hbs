@@ -2,7 +2,7 @@
     <h1>Add An Animal To Our System By Filling Out The Form Below</h1>
     <h3>Add Animal</h3>
     <div class="container">
-	<form>
+	<form action="/animals/save" method="post">
         <div class="mb-3 col-5">
             <label for="homeZooInput" class="form-label">Home Zoo</label>
             <input type="text" class="form-control" id="homeZooInput" name="homeZooInput" aria-describedby="emailHelp">
@@ -56,6 +56,7 @@
         </div>
         <div class="mb-3">
             <button type="reset" class="btn btn-primary">Reset Form</button>
+        </div>
         </div>
     </form>
     </div>

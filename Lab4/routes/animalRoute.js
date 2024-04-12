@@ -14,6 +14,10 @@ const animalController = require('../controllers/animalController');
 // Use Get commands.
 router.get('/all-animals', animalController.animalList);
 router.get('/entry-form', animalController.entryFormView);
+router.post('/save', animalController.animalSave);
+router.get('/:id/edit-animal', animalController.animalEdit);
+router.post('/:id/update', animalController.animalUpdate);
+router.post('/:id/delete', animalController.animalDelete);
 
 // Export the router.
 module.exports = router;
