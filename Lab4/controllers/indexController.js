@@ -5,6 +5,7 @@
     File: indexController.js
     File Desc: This file will contain the basic export of the view for the index page.
 */
+// Export the index viewer.
 exports.indexView = (req, res) => {
     res.render('index', { pageTitle: 'Animal Database: Index' });
 }

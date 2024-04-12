@@ -11,7 +11,7 @@ const express = require('express');
 const router = express.Router();
 const animalController = require('../controllers/animalController');
 
-// Use Get commands.
+// Use commands to either get or post to an action.
 router.get('/all-animals', animalController.animalList);
 router.get('/entry-form', animalController.entryFormView);
 router.post('/save', animalController.animalSave);

@@ -2,6 +2,7 @@
     <h1>Edit An Animal Within Our System By Updating The Form Below</h1>
     <h3>Edit {{animal.given_name}}</h3>
     <div class="container">
+    <span class="error">{{formError}}</span>
 	<form action="/animals/{{animal._id}}/update" method="post">
         <div class="mb-3 col-5">
             <label for="homeZooInput" class="form-label">Home Zoo</label>

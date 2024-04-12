@@ -2,54 +2,55 @@
     <h1>Add An Animal To Our System By Filling Out The Form Below</h1>
     <h3>Add Animal</h3>
     <div class="container">
+    <span class="error">{{formError}}</span>
 	<form action="/animals/save" method="post">
         <div class="mb-3 col-5">
             <label for="homeZooInput" class="form-label">Home Zoo</label>
-            <input type="text" class="form-control" id="homeZooInput" name="homeZooInput" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="homeZooInput" name="homeZooInput" aria-describedby="zooHelp" value="{{zoo}}">
             <div id="homeZooHelp" class="form-text">Enter The Home Zoo Location Of The Animal You Wish To Add To Our System.</div>
         </div>
         <div class="mb-3 col-5">
             <label for="scientificNameInput" class="form-label">Scientific Name</label>
-            <input type="text" class="form-control" id="scientificNameInput" name="scientificNameInput">
+            <input type="text" class="form-control" id="scientificNameInput" name="scientificNameInput" value="{{scientific_name}}">
             <div id="ScientificNameHelp" class="form-text">Enter The Scientific Name Of The Animal Here.</div>
         </div>
         <div class="mb-3 col-5">
             <label for="commonNameInput" class="form-label">Common Name</label>
-            <input type="text" class="form-control" id="commonNameInput" name="commonNameInput">
+            <input type="text" class="form-control" id="commonNameInput" name="commonNameInput" value="{{common_name}}">
             <div id="commonNameHelp" class="form-text">Enter The Common Name Of The Animal Here.</div>
         </div>
         <div class="mb-3 col-5">
             <label for="givenNameInput" class="form-label">Given Name</label>
-            <input type="text" class="form-control" id="givenNameInput" name="givenNameInput">
+            <input type="text" class="form-control" id="givenNameInput" name="givenNameInput" value="{{given_name}}">
             <div id="givenNameHelp" class="form-text">Enter The Given Name Of The Animal Here.</div>
         </div>
         <div id="genderSection" class="form-text">Select The Gender Of The Animal Below.</div>
         <div class="form-check">
             <label class="form-check-label" for="maleRadioButton">Male</label>
-            <input class="form-check-input" type="radio" name="genderRadioButton" id="maleRadioButton" value="Male">
+            <input class="form-check-input" type="radio" name="genderRadioButton" id="maleRadioButton" value="Male" {{{radioHelper gender 'Male'}}}>
         </div>
         <div class="form-check">
             <label class="form-check-label" for="femaleRadioButton">Female</label>
-            <input class="form-check-input" type="radio" name="genderRadioButton" id="femaleRadioButton" value="Female">
+            <input class="form-check-input" type="radio" name="genderRadioButton" id="femaleRadioButton" value="Female" {{{radioHelper gender 'Female'}}}>
         </div>
         <div class="mb-3 col-5">
             <label for="dateOfBirthInput" class="form-label">Date Of Birth</label>
-            <input type="date" class="form-control" id="dateOfBirthInput" name="dateOfBirthInput">
+            <input type="date" class="form-control" id="dateOfBirthInput" name="dateOfBirthInput" value="{{date_of_birth}}">
             <div id="dobInputHelp" class="form-text">Select The Animals Date Of Birth Using The Calender Below.</div>
         </div>
         <div class="mb-3 col-5">
             <label for="ageInput" class="form-label">Age</label>
-            <input type="text" class="form-control" id="ageInput" name="ageInput">
+            <input type="text" class="form-control" id="ageInput" name="ageInput" value="{{age}}">
             <div id="ageHelp" class="form-text">Enter The Age Of The Animal Here.</div>
         </div>
         <div id="availabilitySection" class="form-text">Select Whether Or Not The Animal Can Be Transported.</div>
         <div class="form-check">
             <label class="form-check-label" for="availableRadioButton">Available</label>
-            <input class="form-check-input" type="radio" name="transportableRadioButton" id="availableRadioButton" value="Available">
+            <input class="form-check-input" type="radio" name="transportableRadioButton" id="availableRadioButton" value="true" {{#if animal.is_transportable}}checked{{/if}}>
         </div>
         <div class="form-check">
             <label class="form-check-label" for="femaleRadioButton">Unavailable</label>
-            <input class="form-check-input" type="radio" name="transportableRadioButton" id="unavailableRadioButton" value="Unavailable">
+            <input class="form-check-input" type="radio" name="transportableRadioButton" id="unavailableRadioButton" value="false" {{#if animal.is_transportable}}{{else}}checked{{/if}}>
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Add Animal</button>

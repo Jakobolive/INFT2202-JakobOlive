@@ -9,7 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController');
-// Use Get commands.
+// Use Get command.
 router.get('/', indexController.indexView);
 
 // Export the router.
