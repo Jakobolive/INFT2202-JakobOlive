@@ -1,5 +1,5 @@
 /*
-    Name: Jakob Olive
+    Name: Jakob Olive (st# 100810499)
     Date: 2024-04-04
     Course: INFT 2202
     File: animalController.js
@@ -7,13 +7,17 @@
 */
 const animalModel = require('../models/animalModel');
 
-// This function will render the entry form for the user to input an animal.
+/* 
+This function will render the entry form for the user to input an animal.
+*/
 exports.entryFormView = (req, res) => {
     res.render('animals/entry-form', { pageTitle: 'Animal Database: Entry Form'});
 };
 
-// This function will be called when the user navigates to the all-animals page, this will render a list of the animals in a visible format.
-exports.animalList = async (req, res) => {
+/*
+ This function will be called when the user navigates to the all-animals page, this will render a list of the animals in a visible format.
+*/
+ exports.animalList = async (req, res) => {
     try {
       let animals = await animalModel.find().lean().exec();
       res.render('animals/all-animals', { pageTitle: 'Animal Database: Animal List', animals: animals});
@@ -22,7 +26,9 @@ exports.animalList = async (req, res) => {
     }
 };
 
-// This function will be called when the user submits the animal entry form, it will check user data and create an animal if the data is valid.
+/* 
+This function will be called when the user submits the animal entry form, it will check user data and create an animal if the data is valid.
+*/
 exports.animalSave = async (req, res) => {
   try {
       // Getting input from the form for less code later.
@@ -79,8 +85,10 @@ exports.animalSave = async (req, res) => {
   }
 };
 
-// This function will be called when the user accesses the edit animal page, this will render the page and pass it the animal to be edited to pre populate the form.
-exports.animalEdit = async (req, res) => {
+/*
+ This function will be called when the user accesses the edit animal page, this will render the page and pass it the animal to be edited to pre populate the form.
+*/
+ exports.animalEdit = async (req, res) => {
   try{
     let animal = await animalModel.findById(req.params.id).lean().exec();
     res.render('animals/edit-animal', { pageTitle: 'Animal Database: Edit Animal', animal: animal});
@@ -89,7 +97,9 @@ exports.animalEdit = async (req, res) => {
   }
 };
 
-// This function will be called upon submission of the edit form, this function will validate the user input and update the animal accordingly.
+/*
+ This function will be called upon submission of the edit form, this function will validate the user input and update the animal accordingly.
+ */
 exports.animalUpdate = async (req, res) => {
   try {
     let animal = await animalModel.findById(req.params.id).exec();
@@ -129,7 +139,9 @@ exports.animalUpdate = async (req, res) => {
     return res.render('animals/edit-animal', { pageTitle: 'Animal Database: Entry Form', formError:'You Must Select Transportability, Please Try Again.', animal: animal});
    }
 
-    // This section of the code will replace the attributes of the animal with the new and validated user input.
+    /*
+     This section of the code will replace the attributes of the animal with the new and validated user input.
+     */
     animal.zoo = req.body.homeZooInput;
     animal.scientific_name = req.body.scientificNameInput;
     animal.common_name = req.body.commonNameInput;
@@ -146,7 +158,9 @@ exports.animalUpdate = async (req, res) => {
   }
 };
 
-// This function will look for the animal passed to it and delete the animal if it exists.
+/*
+ This function will look for the animal passed to it and delete the animal if it exists.
+ */
 exports.animalDelete = async (req, res) => {
   try {
     let animal = await animalModel.findByIdAndDelete(req.params.id);

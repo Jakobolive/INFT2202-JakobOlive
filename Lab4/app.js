@@ -1,5 +1,5 @@
 /*
-    Name: Jakob Olive
+    Name: Jakob Olive (st# 100810499)
     Date: 2024-04-04
     Course: INFT 2202
     File: app.js
@@ -48,7 +48,9 @@ db.once('open', () => {
 // Create the body parser to pass to the routs.
 let codeParser = bodyParser.urlencoded({extended: false});
 
-// Create and register a custom handlebars helper to check the edit radio buttons if passed proper data.
+/*
+ Create and register a custom handlebars helper to check the edit radio buttons if passed proper data.
+ */
 handlebars.handlebars.registerHelper('radioHelper', function( value, testValue){
     // Check for matching strings.
     if ( value == testValue ) {
